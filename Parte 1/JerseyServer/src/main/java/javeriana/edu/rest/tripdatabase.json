@@ -1,0 +1,5 @@
+[
+    {"lugarLlegada":"Plaza de Bolivar","fecha":"09\/09\/2021","id":"1","nombre":"Explorar Bogota","lugarSalida":"Centro Comercial Santa Fe"},
+    {"lugarLlegada":"Metro Cable","fecha":"10\/09\/2021","id":"2","nombre":"Explorar Medellin","lugarSalida":"Barrio el Pueblo"},
+    {"lugarLlegada":"Mi casa","fecha":"10\/09\/2021","id":"3","nombre":"Explorar mi casa","lugarSalida":"tu casa"}
+]
