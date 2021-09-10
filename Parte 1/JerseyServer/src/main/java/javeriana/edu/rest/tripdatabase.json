@@ -1,5 +1,5 @@
 [
-    {"lugarLlegada":"Plaza de Bolivar","fecha":"09\/09\/2021","id":"1","nombre":"Explorar Bogota","lugarSalida":"Centro Comercial Santa Fe"},
-    {"lugarLlegada":"Metro Cable","fecha":"10\/09\/2021","id":"2","nombre":"Explorar Medellin","lugarSalida":"Barrio el Pueblo"},
-    {"lugarLlegada":"Mi casa","fecha":"10\/09\/2021","id":"3","nombre":"Explorar mi casa","lugarSalida":"tu casa"}
+    {"lugarLlegada":"Plaza de Bolivar","fecha":"2021-09-08","id":"1","nombre":"Expedicion por Bogota","lugarSalida":"Centro comercial Santa Fe"},
+    {"lugarLlegada":"Metro Cable","fecha":"2021-09-10","id":"2","nombre":"Explorar Medellin","lugarSalida":"Barrio el Pueblo"},
+    {"lugarLlegada":"Tu casa","fecha":"2021-09-29","id":"4","nombre":"Prueba","lugarSalida":"Mi casa"}
 ]

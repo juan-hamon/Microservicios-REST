@@ -34,9 +34,7 @@ public class TripsService {
     public Response deleteTrip(@PathParam(value = "id") String id){
         Boolean finded = false;
         List<Trip> trips = controller.readJSON();
-        System.out.println(trips.size());
         Integer intId = Integer.parseInt(id);
-        System.out.println("xx");
         for (Trip trip : trips) {
             if(trip.getId() == intId){
                 trips.remove(trip);

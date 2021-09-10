@@ -45,7 +45,7 @@ public class DataController {
 
     public void writeJSON(List<Trip> newInfo){
         JSONArray information = new JSONArray();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         for (Trip trip : newInfo) {
             HashMap<String,String> tripDetails = new HashMap<>();
             tripDetails.put("id", trip.getId().toString());

@@ -30,7 +30,7 @@ public class Trip {
     public Trip(JSONObject jsonTrip){
         Date tripDate = new Date();
         try {
-            tripDate = new SimpleDateFormat("dd/MM/yyyy").parse((String) jsonTrip.get("fecha"));
+            tripDate = new SimpleDateFormat("yyyy-MM-dd").parse((String) jsonTrip.get("fecha"));
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
