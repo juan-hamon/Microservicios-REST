@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import java.time.*;
+import java.time.LocalDateTime;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -56,17 +56,16 @@ public class MyMultiplicatorController {
 
     @GetMapping("/multiplicar/files")
     public JSONArray multiplyHistory(){
-
         return readJson();
     }
 
     @GetMapping("/multiplicar")
-    public Integer multiply(@RequestParam int a, @RequestParam int b,@RequestParam String nombre){
+    public Integer multiply(@RequestParam int a, @RequestParam int b,@RequestParam String name){
         HashMap<String,String> operationDetails = new HashMap<>();
         operationDetails.put("Operando1", String.valueOf (a));
         operationDetails.put("Operando2", String.valueOf (b));
         operationDetails.put("Resultado", String.valueOf (a*b));
-        operationDetails.put("Usuario", nombre);
+        operationDetails.put("Usuario", name);
         operationDetails.put("Fecha", LocalDateTime.now().toString());
         JSONArray information = readJson();
         information.add(new JSONObject(operationDetails));
