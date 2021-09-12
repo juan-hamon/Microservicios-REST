@@ -53,20 +53,22 @@ public class MyDivisorController {
         }
     }
 
-    @GetMapping("/division/files")
+    @GetMapping("/div/files")
     public JSONArray divisionHistory(){
         return readJson();
     }    
 
 
 
-    @GetMapping("/division")
-    public ResponseEntity<Integer> divide(@RequestParam int a, @RequestParam int b,@RequestParam String name){
+    @GetMapping("/div")
+    public ResponseEntity<Integer> divide(@RequestParam int a, @RequestParam int b,@RequestParam String user){
         HashMap<String,String> operationDetails = new HashMap<>();
+        String port = environment.getProperty("local.server.port");
         operationDetails.put("Operando1", String.valueOf (a));
         operationDetails.put("Operando2", String.valueOf (b));
         if(b!=0)operationDetails.put("Resultado", String.valueOf (a/b)); else operationDetails.put("Resultado", "Error");
-        operationDetails.put("Usuario", name);
+        operationDetails.put("Usuario", user);
+        operationDetails.put("Instancia", port);
         operationDetails.put("Fecha", LocalDateTime.now().toString());
         JSONArray information = readJson();
         information.add(new JSONObject(operationDetails));

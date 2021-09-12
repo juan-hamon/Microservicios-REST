@@ -23,8 +23,8 @@ public class CalculadoraController {
     }
 
     @GetMapping("/calculadora/suma")
-    public String calculadoraSuma(@RequestParam int a, @RequestParam int b, @RequestParam String name){
-        Integer response = restTemplate.getForObject("http://sumador/suma?a={a}&b={b}&name={name}", Integer.class, a, b, name);
+    public String calculadoraSuma(@RequestParam int a, @RequestParam int b, @RequestParam String user){
+        Integer response = restTemplate.getForObject("http://sumador/suma?a={a}&b={b}&user={user}", Integer.class, a, b, user);
         return "Resultado es: "+response;
     }
 
@@ -35,8 +35,8 @@ public class CalculadoraController {
     }
 
     @GetMapping("/calculadora/resta")
-    public String calculadoraResta(@RequestParam int a, @RequestParam int b, @RequestParam String name){
-        Integer response = restTemplate.getForObject("http://sustractor/resta?a={a}&b={b}&name={name}", Integer.class, a, b, name);
+    public String calculadoraResta(@RequestParam int a, @RequestParam int b, @RequestParam String user){
+        Integer response = restTemplate.getForObject("http://sustractor/resta?a={a}&b={b}&user={user}", Integer.class, a, b, user);
         return "Resultado es: "+response;
     }
 
@@ -46,32 +46,32 @@ public class CalculadoraController {
         return response;
     }
 
-    @GetMapping("/calculadora/multiplicar")
-    public String calculadoraMultiplicar(@RequestParam int a, @RequestParam int b, @RequestParam String name){
-        Integer response = restTemplate.getForObject("http://multiplicador/multiplicar?a={a}&b={b}&name={name}", Integer.class, a, b, name);
+    @GetMapping("/calculadora/multip")
+    public String calculadoraMultiplicar(@RequestParam int a, @RequestParam int b, @RequestParam String user){
+        Integer response = restTemplate.getForObject("http://multiplicador/multip?a={a}&b={b}&user={user}", Integer.class, a, b, user);
         return "Resultado es: "+response;
     }
 
-    @GetMapping("/calculadora/multiplicar/files")
+    @GetMapping("/calculadora/multip/files")
     public JSONArray calculadoraHistorialMultiplicar(){
-        JSONArray response = restTemplate.getForObject("http://multiplicador/multiplicar/files", JSONArray.class);
+        JSONArray response = restTemplate.getForObject("http://multiplicador/multip/files", JSONArray.class);
         return response;
     }
 
-    @GetMapping("/calculadora/division")
-    public String calculadoraDividir(@RequestParam int a, @RequestParam int b, @RequestParam String name){
+    @GetMapping("/calculadora/div")
+    public String calculadoraDividir(@RequestParam int a, @RequestParam int b, @RequestParam String user){
         try{
-            ResponseEntity<Integer> response = restTemplate.getForObject("http://divisor/division?a={a}&b={b}&name={name}", ResponseEntity.class, a, b, name);
-            return "Resultado es: "+response.getBody();
+            Integer response = restTemplate.getForObject("http://divisor/div?a={a}&b={b}&user={user}", Integer.class, a, b, user);
+            return "Resultado es: "+response;
         }
         catch( HttpClientErrorException e){
             return "Operacion invalida";
         }
     }
 
-    @GetMapping("/calculadora/division/files")
+    @GetMapping("/calculadora/div/files")
     public JSONArray calculadoraHistorialDividir(){
-        JSONArray response = restTemplate.getForObject("http://divisor/division/files", JSONArray.class);
+        JSONArray response = restTemplate.getForObject("http://divisor/div/files", JSONArray.class);
         return response;
     }
 }

@@ -54,18 +54,20 @@ public class MyMultiplicatorController {
         }
     }
 
-    @GetMapping("/multiplicar/files")
+    @GetMapping("/multip/files")
     public JSONArray multiplyHistory(){
         return readJson();
     }
 
-    @GetMapping("/multiplicar")
-    public Integer multiply(@RequestParam int a, @RequestParam int b,@RequestParam String name){
+    @GetMapping("/multip")
+    public Integer multiply(@RequestParam int a, @RequestParam int b,@RequestParam String user){
         HashMap<String,String> operationDetails = new HashMap<>();
+        String port = environment.getProperty("local.server.port");
         operationDetails.put("Operando1", String.valueOf (a));
         operationDetails.put("Operando2", String.valueOf (b));
         operationDetails.put("Resultado", String.valueOf (a*b));
-        operationDetails.put("Usuario", name);
+        operationDetails.put("Usuario", user);
+        operationDetails.put("Instancia", port);
         operationDetails.put("Fecha", LocalDateTime.now().toString());
         JSONArray information = readJson();
         information.add(new JSONObject(operationDetails));

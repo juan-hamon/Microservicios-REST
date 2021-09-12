@@ -57,13 +57,15 @@ public class MySumController {
     }
 
     @GetMapping("/suma")
-    public Integer sum(@RequestParam int a, @RequestParam int b, @RequestParam String name){
+    public Integer sum(@RequestParam int a, @RequestParam int b, @RequestParam String user){
         Integer result = a+b;
+        String port = environment.getProperty("local.server.port");
         HashMap<String,String> operationDetails = new HashMap<>();
         operationDetails.put("Operando1", String.valueOf(a));
         operationDetails.put("Operando2", String.valueOf(b));
         operationDetails.put("Resultado", String.valueOf(result));
-        operationDetails.put("Usuario", name);
+        operationDetails.put("Usuario", user);
+        operationDetails.put("Instancia", port);
         operationDetails.put("Fecha", LocalDate.now().toString());
         JSONArray values = readJson();
         values.add(operationDetails);
